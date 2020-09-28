@@ -1,0 +1,88 @@
+<!-- masonrygriditem.standard_html -->
+<tal:block tal:define="global 
+  zmscontext options/zmscontext;
+  zmsroot python:zmscontext.breadcrumbs_obj_path()[0];
+  lang python:request.get('lang','ger');
+  ZMS_COMMON python:request.get('ZMS_COMMON','common');
+  Std modules/Products.PythonScripts/standard;
+  newline_to_br nocall:Std/newline_to_br; 
+  attr_title python:zmscontext.attr('attr_title');
+  attr_titlesub python:zmscontext.attr('attr_titlesub');
+  attr_date python:zmscontext.attr('attr_date');
+  attr_txt python:zmscontext.attr('attr_txt');
+  attr_url python:zmscontext.attr('attr_url');
+  attr_urltxt python:zmscontext.attr('attr_urltxt');
+  attr_type python:zmscontext.attr('attr_type');  
+  attr_img python:zmscontext.attr('attr_img');
+  attr_css python:zmscontext.attr('attr_css');
+  items python:zmscontext.getChildNodes(request);
+  ">
+
+<div tal:condition="python:attr_type =='Foto rechts'" class="masonry-grid-item col-sm-12 col-lg-8 g-mb-30">
+  <article  class="row align-items-stretch no-gutters u-shadow-v21 u-shadow-v21--hover g-transition-0_3">
+    <div class="col-md-6 g-bg-white g-rounded-left-5">
+      <div class="g-pa-60">
+        <ul class="list-inline g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 mb-1">
+          <li tal:condition="attr_date" class="list-inline-item"><span tal:replace="structure python:'%s' %(zmscontext.getLangFmtDate(attr_date,lang, '%d.%m.%Y'))">attr_date</span></li>
+        </ul>
+        <h2 tal:condition="attr_url" class="h5 g-color-black g-font-weight-600 mb-1">
+            <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></a>
+        </h2>
+        <h2 tal:condition="python:not(attr_url)" class="h5 g-color-black g-font-weight-600 mb-1">
+            <span class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></span>
+        </h2>        
+        <ul tal:condition="attr_titlesub" class="list-inline g-color-gray-dark-v4 g-font-weight-600 g-font-size-12">
+          <li class="list-inline-item mr-0"><span tal:replace="structure python:newline_to_br(attr_titlesub)">attr_titlesub</span></li>
+        </ul>
+        <p class="g-color-gray-dark-v4 g-line-height-1_8 mb-4"><span tal:replace="structure python:newline_to_br(attr_txt)">attr_txt</span></p>
+        <ul tal:condition="attr_url" class="list-inline g-font-size-12 mb-0">
+          <li class="list-inline-item g-mb-10">
+            <a class="u-tags-v1 g-color-black g-bg-black-opacity-0_1 g-bg-black--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"><span tal:condition="python:not(attr_urltxt)" tal:replace="structure python:unicode(zmsroot.getLangStr('REFMORETXT',lang),'utf-8',errors='ignore')">REFMORETXT</span><span tal:replace="structure python:newline_to_br(attr_urltxt)">attr_urltxt</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 g-bg-size-cover g-bg-pos-center g-min-height-300 g-rounded-right-5" tal:attributes="data-bg-img-src python:attr_img.getHref(request)"></div>
+  </article>
+</div>
+
+<div tal:condition="python:attr_type =='Foto oben'" class="masonry-grid-item col-sm-6 col-lg-4 g-mb-30">
+  <article  class="u-shadow-v21 u-shadow-v21--hover g-transition-0_3">
+    <img class="img-fluid w-100 g-rounded-top-5" tal:attributes="src python:attr_img.getHref(request); alt python:'%s' %(attr_title)">
+    <div class="g-bg-white g-pa-30 g-rounded-bottom-5">
+      <ul class="list-inline g-color-gray-dark-v4 g-font-weight-600 g-font-size-12 mb-1">
+        <li tal:condition="attr_date" class="list-inline-item"><span tal:replace="structure python:'%s' %(zmscontext.getLangFmtDate(attr_date,lang, '%d.%m.%Y'))">attr_date</span></li>
+      </ul>
+        <h2 tal:condition="attr_url" class="h5 g-color-black g-font-weight-600 mb-1">
+            <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></a>
+        </h2>
+        <h2 tal:condition="python:not(attr_url)" class="h5 g-color-black g-font-weight-600 mb-1">
+            <span class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></span>
+        </h2> 
+      <ul tal:condition="attr_titlesub" class="list-inline g-color-gray-dark-v4 g-font-weight-600 g-font-size-12">
+        <li class="list-inline-item mr-0"><span tal:replace="structure python:newline_to_br(attr_titlesub)">attr_titlesub</span></li>
+      </ul>
+      
+      <ul tal:condition="attr_url" class="list-inline g-font-size-12 mb-0">
+        <li class="list-inline-item g-mb-10">
+          <a class="u-tags-v1 g-color-black g-bg-black-opacity-0_1 g-bg-black--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"><span tal:condition="python:not(attr_urltxt)" tal:replace="structure python:unicode(zmsroot.getLangStr('REFMORETXT',lang),'utf-8',errors='ignore')">REFMORETXT</span><span tal:replace="structure python:newline_to_br(attr_urltxt)">attr_urltxt</span></a>
+        </li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<div tal:condition="python:attr_type =='Kein Foto'" class="masonry-grid-item col-sm-6 col-lg-4 g-mb-30">
+  <article class="u-shadow-v21 u-shadow-v21--hover g-transition-0_3 g-bg-primary text-center g-rounded-5 g-pa-30 g-py-100">
+    <span class="g-color-white-opacity-0_8 g-font-size-60 g-line-height-0">
+        &#8220;
+      </span>
+    <h2 class="h3 g-color-white g-font-weight-600 mb-4"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></h2>
+    <h3 class="g-color-white-opacity-0_8 g-font-size-13 text-uppercase"><span tal:replace="structure python:newline_to_br(attr_titlesub)">attr_titlesub</span></h3>
+																																		   
+    <a tal:condition="attr_url" class="u-link-v2" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"></a>
+  </article>
+</div>
+
+</tal:block>
+<!-- /masonrygriditem.standard_html -->
