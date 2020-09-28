@@ -79,7 +79,7 @@
       </span>
     <h2 class="h3 g-color-white g-font-weight-600 mb-4"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></h2>
     <h3 class="g-color-white-opacity-0_8 g-font-size-13 text-uppercase"><span tal:replace="structure python:newline_to_br(attr_titlesub)">attr_titlesub</span></h3>
-    <p class="g-color-gray-dark-v4 g-line-height-1_8 mb-4"><span tal:replace="structure python:newline_to_br(attr_txt)">attr_txt</span></p>
+    <p class="g-color-white g-line-height-1_8 mb-4"><span tal:replace="structure python:newline_to_br(attr_txt)">attr_txt</span></p>
     <a tal:condition="attr_url" class="u-link-v2" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"></a>
   </article>
 </div>
