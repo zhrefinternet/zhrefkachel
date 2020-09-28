@@ -57,12 +57,12 @@
             <a class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></a>
         </h2>
         <h2 tal:condition="python:not(attr_url)" class="h5 g-color-black g-font-weight-600 mb-1">
-            <span class="u-link-v5 g-color-black g-color-primary--hover g-cursor-pointer"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></span>
+            <span class="u-link-v5 g-color-black "><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></span>
         </h2> 
       <ul tal:condition="attr_titlesub" class="list-inline g-color-gray-dark-v4 g-font-weight-600 g-font-size-12">
         <li class="list-inline-item mr-0"><span tal:replace="structure python:newline_to_br(attr_titlesub)">attr_titlesub</span></li>
       </ul>
-      
+      <p class="g-color-gray-dark-v4 g-line-height-1_8 mb-4"><span tal:replace="structure python:newline_to_br(attr_txt)">attr_txt</span></p>
       <ul tal:condition="attr_url" class="list-inline g-font-size-12 mb-0">
         <li class="list-inline-item g-mb-10">
           <a class="u-tags-v1 g-color-black g-bg-black-opacity-0_1 g-bg-black--hover g-color-white--hover g-rounded-50 g-py-4 g-px-15" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"><span tal:condition="python:not(attr_urltxt)" tal:replace="structure python:unicode(zmsroot.getLangStr('REFMORETXT',lang),'utf-8',errors='ignore')">REFMORETXT</span><span tal:replace="structure python:newline_to_br(attr_urltxt)">attr_urltxt</span></a>
@@ -79,7 +79,7 @@
       </span>
     <h2 class="h3 g-color-white g-font-weight-600 mb-4"><span tal:replace="structure python:newline_to_br(attr_title)">attr_title</span></h2>
     <h3 class="g-color-white-opacity-0_8 g-font-size-13 text-uppercase"><span tal:replace="structure python:newline_to_br(attr_titlesub)">attr_titlesub</span></h3>
-																																		   
+    <p class="g-color-gray-dark-v4 g-line-height-1_8 mb-4"><span tal:replace="structure python:newline_to_br(attr_txt)">attr_txt</span></p>
     <a tal:condition="attr_url" class="u-link-v2" tal:attributes="href python:zmscontext.getLinkUrl(attr_url,request)"></a>
   </article>
 </div>
